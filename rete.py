@@ -33,4 +33,3 @@ for patient in [patient1, patient2]:
     for production in network:
         if production.evaluate(patient.data):
             print(f"Patient diagnosed: {production.action}")
-            
