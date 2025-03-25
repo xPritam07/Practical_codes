@@ -1,42 +1,31 @@
-import heapq
-goal_state ='Goal'
+from urllib.request import urlopen
 
-def transition(state):
-    transition={
-        'A':[['B',1],['C',3]],
-        'B':[('D',2),('E',4)],
-        'C':[('F',3),('G',5)],
-        'D':['Goal',3],
-        'E':['Goal',4],
-        'F':['Goal',3],
-        'G':['Goal',5]
-    }
-    return transition.get(state,[])
-def heuristic(state):
-    heuristic_values={
-        'A':6,
-        'B':5,
-        'C':7,
-        'D':3,
-        'E':4,
-        'F':3,
-        'G':5,
-        'Goal':0
-    }
-    return heuristic_values.get(state,float('inf'))
-def astar(start_state):
-    frontier=[(heuristic(start_state),0,start_state)]
-    heapq.heapify(frontier)
-    explored=set()
+import pandas as pd
+import io
+df=pd.read_csv(io.StringIO((urlopen('https://raw.githubusercontent.com/xPritam07/Practical_codes/refs/heads/master/iris.csv').read().decode('utf-8'))))
+print(df.head())
 
-    while frontier:
-        _,cost,current_state=heapq.heappop(frontier)
-        if current_state==goal_state:
-            return True 
-        if current_state not in explored:
-            explored.add(current_state)
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+import seaborn as sns
+import matplotlib.pyplot as plt
+le=LabelEncoder()
+df['species']=le.fit_transform(df['species'])
+print(df.head())
 
-            for neighbor, action_cost in transition(current_state):
-                heapq.heappush(frontier,(cost+action_cost+heuristic(neighbor), cost+action_cost, neighbor))
+corr_mat=df.corr()
 
-    return False
+sns.heatmap(corr_mat,annot=True,fmt='g')
+plt.show()
+
+import numpy as np
+x=np.array([[1,2,3],[3,4,5],[6,7,9]])
+sc=StandardScaler()
+
+scaled_x=sc.fit_transform(x)
+
+cov_mat=np.cov(scaled_x)
+print(cov_mat)
+
+eigval,eigvec=np.linalg.eig(x)
+print(eigval)
+print(eigvec)
