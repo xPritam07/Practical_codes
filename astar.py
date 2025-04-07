@@ -38,6 +38,8 @@ def astar(start_state):
     while frontier:
         _, cost, current_state = heapq.heappop(frontier)
 
+        print(f"Visiting node: {current_state}, Cost: {cost}")
+
         if current_state == goal_state:
             return True  # Goal state found
 
