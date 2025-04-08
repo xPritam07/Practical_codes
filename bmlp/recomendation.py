@@ -6,9 +6,9 @@ import seaborn as sns
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 ratings = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/ratings.csv")
-ratings.head()
+print(ratings.head())
 movies = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/movies.csv")
-movies.head()
+print(movies.head())
 n_ratings = len(ratings)
 n_movies = len(ratings['movieId'].unique())
 n_users =len(ratings['userId'].unique())
