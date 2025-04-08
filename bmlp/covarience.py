@@ -4,8 +4,6 @@ science = [85, 82, 72, 77, 75, 89, 95, 84, 77, 94]
 history = [97, 94, 93, 95, 88, 82, 78, 84, 69, 78]
 data = np.array([math, science, history])
 
-np.cov(data, bias=True)
-np.array([[ 64.96, 33.2 , -24.44], [ 33.2 , 56.4 , -24.1 ], [-24.44, -24.1 , 75.]])
 import seaborn as sns
 import matplotlib.pyplot as plt
 cov = np.cov(data, bias=True)
