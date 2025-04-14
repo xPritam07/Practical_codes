@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-ratings = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/ratings.csv")
+ratings = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/bmlp/ratings.csv")
 print(ratings.head())
-movies = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/movies.csv")
+movies = pd.read_csv("/home/zoro/Documents/Python codes/practical_codes/bmlp/movies.csv")
 print(movies.head())
 n_ratings = len(ratings)
 n_movies = len(ratings['movieId'].unique())
