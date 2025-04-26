@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 # Define the original points (like corners of a square)
 points = np.array([
     [0, 0],
-    [1, 0],
-    [1, 1],
     [0, 1],
+    [1, 1],
+    [1, 0],
     [0, 0]  # to close the square
 ])
 
