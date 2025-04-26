@@ -9,4 +9,11 @@ b=np.array([[5,2,7],
             [1,4,9]])
 
 mat_add = np.add(a,b)
-print(mat_add)
+print("Matrix addition :\n",mat_add)
+
+mat_sub = np.subtract(a,b)
+print("Matrix subtraction :\n",mat_sub)
+
+c=int(input("Enter any scaler valeu: "))
+scaler_mul = c * a
+print("Scaler multiplication:\n",scaler_mul)
