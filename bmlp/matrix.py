@@ -17,3 +17,9 @@ print("Matrix subtraction :\n",mat_sub)
 c=int(input("Enter any scaler valeu: "))
 scaler_mul = c * a
 print("Scaler multiplication:\n",scaler_mul)
+
+mat_mul = np.matmul(a,b)
+print("Matrix multiplication :\n",mat_mul)
+
+mat_div = a/b
+print("Elementwise division :\n",mat_div)
