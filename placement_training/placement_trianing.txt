@@ -1,0 +1,57 @@
+Types of OOPs concept:
+1. Class
+2. Object
+3. Inheritance : It allows a class to acquire the properties and methods of another class.
+		Single Inheritance
+		Multiple Inheritance
+		Multilevel Inheritance
+		Hierarchical Inheritance
+		
+
+4. Polymorphism:
+		1. Overloading(Compile-time/limited)
+		2. Overriding 
+
+DSA: 
+	1. data structures
+	2. Algorithms
+	3. Keywords
+	4. User-defined and Customised functions.
+
+Memory allocation in RAM:
+	1. Heap
+	2. Stack
+	3. main()
+	4. local and global variables.
+	5. Code segments.
+
+Big O: Upper Bound.
+Big Omega : Lower Bound.
+Big Theta : Tight Bound.
+
+
+Threading & Multi-threading
+Multiprocessing
+Global interpreter lock (GIL) and its impact
+Memory management & python object model
+
+
+
+How python manages memory? 
+1. Privet Heap
+2. Reference Counting
+3. Garbage Collector
+
+
+
+
+
+
+n-queen Problem
+Rat in a mess
+Bird Search
+
+. Q . .
+. . . Q
+Q . . .
+. . Q .
