@@ -1,14 +1,12 @@
-def bully_algorith(process, initiator):
-    print(f"Process {initiator} starts the election.")
+import numpy as np
+import matplotlib.pyplot as plt
 
-    for p in sorted(process, reverse=True):
-        if p > initiator:
-            print(f"Process {p} responds to election.")
-            return bully_algorith(process, p)
-        
-    print(f"Process {initiator} becomes the coordinator")
-    return initiator
+x = np.array([[0,0],[0,1],[1,0],[1,1]])
+y = np.array([[0],[1],[1],[1]])
 
-processes = [1,2,3,4,5]
-coordinator = bully_algorith(process=processes, initiator=2)
-print(f"{coordinator} is the new coordinator")
+w1, w2, b = 0.0
+lr = 0.01
+
+for  _ in range(10):
+    for i in range(4):
+        z1 = 
