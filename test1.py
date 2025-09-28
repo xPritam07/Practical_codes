@@ -1,12 +1,41 @@
-import numpy as np
-import matplotlib.pyplot as plt
+from flask import Flask, request, redirect
 
-x = np.array([[0,0],[0,1],[1,0],[1,1]])
-y = np.array([[0],[1],[1],[1]])
+app = Flask(__name__)
 
-w1, w2, b = 0.0
-lr = 0.01
+user_data = {
+    "admin":"admin123",
+    "Pritam": "pg5772",
+    "Susmita": "sg8701"
+}
 
-for  _ in range(10):
-    for i in range(4):
-        z1 = 
+@app.route('/', methods = ['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username in user_data.keys() and password == user_data[username]:
+            return f"<center><h2>Welcome! You logged in successfully.<h2></center>"
+        else:
+            return'''
+<center>
+<h2>Wrong Credentials! Login to continue.<h2>
+<form method ='POST'>
+Username <input type="text" name="username" required /><br>
+Password <input type="password" name="password" required /><br>
+<input type="submit" value="Login">
+</from>
+</center>
+'''
+    return '''
+<center>
+<h2>Login Form<h2>
+<form method ='POST'>
+Username <input type="text" name="username" required /><br>
+Password <input type="password" name="password" required /><br>
+<input type="submit" value="Login">
+</from>
+</center>
+'''
+
+if __name__ == "__main__":
+    app.run(debug=True)
