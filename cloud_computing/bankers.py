@@ -13,6 +13,8 @@ def bankers_algorithm(available, max_demand, allocation):
                 allocated = True
         if not allocated:
             return False, []  # No safe sequence found
+        
+        
     return True, safe_seq
 
 # Example usage:
