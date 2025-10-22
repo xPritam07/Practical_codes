@@ -8,6 +8,7 @@ def quiz():
     if request.method == "POST":
         answer = request.form["q1"]
         score = 1 if answer == "Cloud Computing" else 0
+        return f"<h3>Your Score: {score}/1</h3>" if score is not None else ""
     return f'''
     <h2>Simple Quiz</h2>
     <form method="post">
@@ -17,7 +18,6 @@ def quiz():
         <input type="radio" name="q1" value="OS"> Operating System<br>
         <input type="submit" value="Submit">
     </form>
-    {f"<h3>Your Score: {score}/1</h3>" if score is not None else ""}
     '''
 
 if __name__ == "__main__":
