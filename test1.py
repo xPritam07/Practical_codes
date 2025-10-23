@@ -1,26 +1,12 @@
-import threading
+from jsonrpclib import Server
 
-data = ["hello", "hello again", "hello world again"]
-mapped = []
-lock = threading.Lock()
+a = int(input("Enter a: "))
+b = int(input("Enter b: "))
 
-def map_function(text):
-    local = []
-    words = text.split()
-    for word in words:
-        local.append((word, 1))
+def main():
+    conn = Server("http://localhost:1086")
+    result = conn.get_multiplication(a,b)
+    print(f"Result is: {result}")
 
-    with lock:
-        mapped.extend(local)
-
-threads=[]
-for line in data:
-    t = threading.Thread(target=map_function, args=(line,))
-    threads.append(t)
-    t.start()
-
-for t in threads:
-    t.join()
-
-print("Mapped output: ", mapped)
-
+if __name__ == "__main__":
+    main()

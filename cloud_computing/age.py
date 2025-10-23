@@ -3,22 +3,22 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
-def age_calculator():
-    age = None
+@app.route("/", methods=['GET', 'POST'])
+def quiz():
     if request.method == "POST":
-        dob = request.form["dob"]
-        dob_date = datetime.strptime(dob, "%Y-%m-%d")
+        dob_str = request.form['dob']
+        dob = datetime.strptime(dob_str, "%Y-%m-%d")
         today = datetime.today()
-        age = today.year - dob_date.year - ((today.month, today.day) < (dob_date.month, dob_date.day))
-    return f'''
-    <h2>Age Calculator</h2>
-    <form method="post">
-        Enter Date of Birth: <input type="date" name="dob" required><br>
-        <input type="submit" value="Calculate Age">
-    </form>
-    {f"<h3>Your Age: {age} years</h3>" if age is not None else ""}
-    '''
+        age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+        return f"<h3>Your age is {age}</h3>"
+    return '''
+        <h1>Quiz page</h1>
+        <form method='post'>
+            <label for="dob">Date of birth</label>
+            <input type="date" name="dob" required>
+            <input type="submit" value="Check Age">
+        </form>
+        '''
 
 if __name__ == "__main__":
     app.run(debug=True)
